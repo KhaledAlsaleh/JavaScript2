@@ -17,40 +17,56 @@
 'use strict'
 
 let myImg = document.querySelector('img');
-
-function wait(ms){    
-        let d = new Date();
-        let d2 = null;
-        do { d2 = new Date(); }
-        while(d2-d < ms);
-    }
+let myImgSrc = myImg.src;
+let myImgWidth = myImg.width;
+let catDance = 'https://media1.tenor.com/images/2de63e950fb254920054f9bd081e8157/tenor.gif?itemid=10561424';
 
 myImg.style.left = '0px';
-let pos = 0;
-function movement(){
 
-    myImg.style.transform = "translateX(" + pos +"px)";
-    pos+=10;
-    if(pos === 600){
-        myImg.src = 'pic1.gif';
-        wait(5000);
-    }
-    if(pos > 600) {
-        myImg.src = 'cat-walk.gif';
-      // wait(5000); 
-    }
-    if(pos > window.innerWidth){
-        pos = -300;
-    }
+
+function movement() {
+  
+  let position = parseInt(myImg.style.left);
+  myImg.style.left = (position + 10).toString().concat('px')
+  
+  let middlePosition = (window.innerWidth - myImgWidth) / 2;
+
+  if (position >= middlePosition - 10 && position <= middlePosition + 10 ) {
+    clearInterval(interval);
+    myImg.src = catDance;
+    setTimeout(function () {
+      myImg.src = myImgSrc;
+      myImg.style.left = (position + 20).toString().concat('px');
+      interval = setInterval(movement,50);
+    }, 5000);
+  }
+
+  if (position > window.innerWidth) {
+    myImg.style.left = '-300px';
+  }
+
 }
 
-setInterval(movement,50);
+let interval = setInterval(movement, 50);
 
 
+
+//myImg.style.transform = "translateX(" + position +"px)";
 
 // Creat variable to get the current time in milliseconds 
 //let startTime = new Date().getTime();
 //console.log(startTime);
+
+
+/* function wait(ms) { 
+  
+  let d = new Date();
+  let d2 = null;
+  do {
+    d2 = new Date();
+  } while (d2 - d < ms);
+  myImg.src = myImgSrc; 
+}  */
 
 
 
