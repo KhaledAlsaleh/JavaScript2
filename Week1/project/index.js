@@ -30,21 +30,22 @@ let favoriteQuotes = [{
 ];
 
 
-function chooseQuote(){
+
+let myFavoriteQuote = document.getElementById('quote');
+let myFavoriteAuthor = document.getElementById('author');
+
+let clickForNewQuote = document.createElement('BUTTON');
+clickForNewQuote.innerText = 'Click Me!';
+document.body.appendChild(clickForNewQuote);
+
+
+clickForNewQuote.onclick = function (){
 
         let randomQuote = Math.floor(Math.random() * favoriteQuotes.length);
-        
-        let myFavoriteQuote = document.getElementById('quote');
+           
         myFavoriteQuote.innerText = favoriteQuotes[randomQuote].quote;
-
-        let myFavoriteAuthor = document.getElementById('author');
-        myFavoriteQuote.innerText = favoriteQuotes[randomQuote].author;
+        
+        myFavoriteAuthor.innerText = favoriteQuotes[randomQuote].author;
 } 
 
-//let clickForNewQuote = document.createElement('BUTTON');
 
-//clickForNewQuote.innerText = 'Click Me!';
-
-//document.body.appendChild(clickForNewQuote);
-
-//clickForNewQuote.onclick(chooseQuote());
