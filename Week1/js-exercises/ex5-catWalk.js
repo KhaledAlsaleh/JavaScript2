@@ -15,40 +15,58 @@
 // Catch the img element and make sure it start from position 0 let 
 
 'use strict'
-
+// get the img tag from html 
 let myImg = document.querySelector('img');
+
+// save the orginal source in a variable
 let myImgSrc = myImg.src;
+
+// git the width of image about 296px we need it to get exact middle of screen 
 let myImgWidth = myImg.width;
+
+// set the source of dancing cat 
 let catDance = 'https://media1.tenor.com/images/2de63e950fb254920054f9bd081e8157/tenor.gif?itemid=10561424';
 
+// start orginal cat from position 0 left
 myImg.style.left = '0px';
 
-
+// creat fuction for movement
 function movement() {
-  
+// get the position of orginal cat that started from 0 left and get numbers only without pixels  
   let position = parseInt(myImg.style.left);
+  //set the left of cat by adding 10 px and do concatination because the input in style.left is string
   myImg.style.left = (position + 10).toString().concat('px')
-  
+  // middle of screen is innerwidth divided by 2 but after deleting the width of image otherwise the middle will be the last bixel from cat becom in the middle 
   let middlePosition = (window.innerWidth - myImgWidth) / 2;
-
+ // let middlePosition = (window.innerWidth) / 2;
+ // we need a rang in miidle to recognise the changing
   if (position >= middlePosition - 10 && position <= middlePosition + 10 ) {
+ // if (position === middlePosition ) {
+    // clear the interval while the cat in middle 
     clearInterval(interval);
+    // change the source while cat in the middle 
     myImg.src = catDance;
+    // call  function using setTimeout so it will run after 5 seconds
     setTimeout(function () {
+    //this function replace the dance cat with the orginal cat and add 20px to the left to make sure that the cat get out the range 
       myImg.src = myImgSrc;
       myImg.style.left = (position + 20).toString().concat('px');
-      interval = setInterval(movement,50);
+      interval = setInterval(movement,50); // call the function again every 50 millieseconds to continue walking....
     }, 5000);
   }
 
-  if (position > window.innerWidth) {
+  if (position > window.innerWidth) { // if the cat get out the screen so I let it start from -300px .... i find that better than starting from 0px { imagin the cat go around your laptop :D }
     myImg.style.left = '-300px';
   }
 
 }
-
+// call the function to let the cat walking every 50 millieseconds and save it in variable to use it when i need to clear the interval !
 let interval = setInterval(movement, 50);
 
+/* I also try anothe ways using using transform and translate to change the position and i creat waiting function to let the cat
+waiting for 5 seconds , using 2 new date and the subtraction must be smaller than 5000 ms , and in other way i used requestAnimationFrame and cancleanimationframe but i couldnt let the cat continue walking ...
+the following comments are not working 100 % ... i was testing many lines and delete some of them and see the result on screen 
+*/
 
 
 //myImg.style.transform = "translateX(" + position +"px)";
