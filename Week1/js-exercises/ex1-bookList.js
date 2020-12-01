@@ -12,6 +12,7 @@
   https: //hyf-js2-week1-makeme-ex1-demo.herokuapp.com/
   */
 
+
   
  'use strict'
 
@@ -53,7 +54,8 @@ function createBookList(books) {
 
     //Creat image for each book and assign a source for each image 
     let imgBook = document.createElement('img');
-    imgBook.src = `book${i+1}.jpg`;
+    imgBook.src = `book${i+1}.jpg`; 
+    
     //or  imgBook.src = "book"+(i+1)+".jpg"
 
     
@@ -92,3 +94,5 @@ function createBookList(books) {
 let ulElement = createBookList(books);
 
 document.querySelector('div').appendChild(ulElement);
+
+

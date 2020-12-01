@@ -1,11 +1,51 @@
-div {
-  width: 400px;
-  height: 500px;
-  background-color: aqua;
+
+*{
+    margin:0;
+    box-sizing: border-box;
+}
+body{
+   background-color: #ffa500;
+   color: #ffa500;
+   font-size: 25px;
 }
 
-p {
-  width: 100px;
-  height: 100px;
-  background-color: burlywood;
+#container{
+    margin:5rem auto;
+    background:white;
+    max-width:70%;
+    line-height:1.25rem;  
+    height:18.75rem;
+    padding:50px 20px 0px 20px;  
+}
+
+#author{
+    float:right;
+    font-size: 1.25rem;
+    margin-top: 1.8rem;
+}
+
+.clickHereButton{
+    color:white;
+    background-color: #ffa500;
+    border:none;
+    padding:10px;
+    font-size: 1.1rem;
+    outline:none;
+    cursor: pointer;
+}
+
+
+.iconsStyle{
+    display: flex;
+    justify-content: space-between;
+    font-size: 2rem;
+    margin-top: 9rem;
+}
+
+
+.emptySpaceStyle{
+    margin:50px auto;
+    background-color: white;
+    height: 50px;
+    width:18.75rem; 
 }

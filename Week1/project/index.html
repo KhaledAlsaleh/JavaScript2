@@ -1,22 +1,31 @@
 <!-- Your code goes in here -->
-
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Random Quote</title>
-  <link rel="stylesheet" href="index.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <script src="https://kit.fontawesome.com/56d3ba3dea.js" crossorigin="anonymous"></script>
+    <title>Random Quote Generator</title>
 </head>
-
 <body>
-  <h1>Welcome!</h1>
-  <div id="quote"></div>
-  <p id="author"></p>
- <!-- <button onclick="chooseQuote()">Click Me!</button>  -->
-  <script src="index.js"></script>
-</body>
+    <div id ="container">
 
-</html>
+        <div id="randomQuote">
+            <p><i class="fas fa-quote-left"></i> <span id="quote"></span></p>
+            <p id="author"></p>
+        </div>
+
+        <div id="icons"> 
+            <div>
+                <i class="fab fa-twitter-square"></i>
+                <i class="fab fa-tumblr-square"></i>
+            </div>
+            <button id="clickHere">New Quote</button> 
+        <!--or  <button id='clickHere' onclick="name of function on java script"></button>  -->  
+        </div>  
+    </div>
+    <div id="emptySpace"></div>
+<script src="index.js"></script> 
+</body>
+</html> 
