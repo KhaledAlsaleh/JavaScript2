@@ -10,6 +10,10 @@
 
 function collectiveAge(people) {
   // return the sum of age for all the people
+  const totalAge = people.reduce((currentAge,member) => {
+    return currentAge + member.age;
+  },0);
+  return totalAge;
 }
 
 const hackYourFutureMembers = [{

@@ -10,6 +10,22 @@
 
 function createHTMLList(arr) {
   // your code goes in here
+  let myHobbiesList = document.createElement('ul');
+  myHobbiesList.innerText= "Here Is Mine Hobbies:\n\n";
+  document.body.insertAdjacentElement('afterbegin', myHobbiesList); // to append ul as first element in body befor script tag!
+  //document.body.appendChild(myHobbiesList);
+
+  myHobbiesList.style.listStyle = 'none';
+  myHobbiesList.style.fontWeight = 'bold';
+  myHobbiesList.style.fontSize = '26px';
+  myHobbiesList.style.lineHeight = '1.5';
+
+  arr.forEach(hobby => {
+      myHobby = document.createElement('li');
+      myHobby.innerText = hobby;
+      myHobbiesList.appendChild(myHobby);
+      myHobby.style.fontSize = '20px';
+  });
 }
 
 const myHobbies = [
@@ -19,3 +35,6 @@ const myHobbies = [
   'Hanging out with friends',
   'Going to the gym',
 ];
+
+
+createHTMLList(myHobbies);
