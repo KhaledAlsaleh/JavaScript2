@@ -1,17 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pomodoro Clock</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Pomodoro Clock</title>
 </head>
+<body>   
+    <div class="container">
 
-<body>
-  <div id="app">
+        <h1>Pomodoro Clock</h1>
+        <h2>Session Length</h2>
 
-  </div>
-  <script src="index.js"></script>
+        <button class="upButton" id="up">Up</button>
+        <span class="sessionLength" id="sessionLength"></span>
+        <button class="downButton" id="down">Down</button>
+
+        <div class="border">
+            <h2>Session</h2>
+            <div class="countDown" id="countDown">
+                <span class="minutes" id="minutes"></span>
+                <span id="between">:</span>
+                <span class="seconds" id="seconds"></span>
+            </div>
+        </div>
+
+        <div class="icons">
+            <button class="playStop" id="playStop">Play / Stop</button>
+            <button class="pause" id="pause">Pause</button>
+        </div>
+
+    </div>
+
+    <script src="index.js"></script>
 </body>
-
 </html>
