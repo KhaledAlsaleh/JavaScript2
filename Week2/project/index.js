@@ -86,7 +86,7 @@ function countDown(){
 
 
 const startBtn = document.getElementById('playStop');
-
+startBtn.title = 'Click For Play!';
 
 function playAndStop (){
     if(startIntervel === undefined){
