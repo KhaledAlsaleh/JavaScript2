@@ -10,7 +10,7 @@
  */
 
  
-let initialValue = 5;
+let initialValue = 25;
 let initialSeconds = '00';
 let startIntervel;
 
@@ -69,12 +69,12 @@ function countDown(){
     if(seconds.textContent != 0){
         seconds.textContent--;
     }else if(minutes.textContent != 0 && seconds.textContent == 0){
-        seconds.textContent = 11;
+        seconds.textContent = 59;
         minutes.textContent--;
     }
     if(seconds.textContent < 10){
         seconds.textContent = '0'+seconds.textContent;
-        console.log(seconds.textContent);
+     //   console.log(seconds.textContent); // this line for test the value on consol ...
         if (minutes.textContent == 0 && seconds.textContent == 0){
             minutes.style.display ='none';
             seconds.style.display ='none';
@@ -88,7 +88,7 @@ function countDown(){
 const startBtn = document.getElementById('playStop');
 
 
-function clickOnButton (){
+function playAndStop (){
     if(startIntervel === undefined){
         startIntervel = setInterval(countDown,1000);
         startBtn.innerHTML = 'Reset';
@@ -98,7 +98,7 @@ function clickOnButton (){
     }if (startIntervel != undefined){
         reset();
     }
-    resume(minutes.textContent,sessionLength.textContent);
+    startAgain(minutes.textContent,sessionLength.textContent);
 }
 
 function reset(){
@@ -115,7 +115,7 @@ function reset(){
         };
 }
 
-function resume(a,b){
+function startAgain(a,b){
     if(a == b){
         startBtn.ondblclick = () => {
             startIntervel = setInterval(countDown,1000);
@@ -125,39 +125,61 @@ function resume(a,b){
     }
 }
 
-startBtn.addEventListener('click',clickOnButton);
+startBtn.addEventListener('click',playAndStop);
 
 
 
-/* Pause Logic 
+// Pause Logic 
 
 let pauseBtn = document.getElementById('pause');
+pauseBtn.title = 'Click For Pause!'
 
-function pauseCount (){
-    clearInterval(startIntervel);
+function pauseAndResume(){
+    if(startIntervel != undefined){
+        clearInterval(startIntervel);
+        pauseBtn.innerHTML = 'Resume';
+        pauseBtn.title = 'Double Click For Resume!'
+    }
+    resumeCount(minutes.textContent,sessionLength.textContent);
 }
 
-function continueCount (){
-    setInterval(countDown,1000);
-}
-
-
-
-pauseBtn.addEventListener('click', () =>{
-    if(startIntervel !=undefined){
-        pauseCount();
-        console.log('first');
-        startIntervel = undefined;
-    }else if(startIntervel == undefined){
-        startBtn.onclick = () =>{
-            console.log('second');
-            continueCount();
-            console.log('third');
+function resumeCount(a,b){
+    if(a != b){
+        pauseBtn.ondblclick = () => {
+            startIntervel = setInterval(countDown,1000);
+            pauseBtn.innerHTML = 'Pause';
+            pauseBtn.title = 'Click For Pause!'
         }
-    };
-});
+    }
+}
 
-*/
+
+pauseBtn.addEventListener('click',pauseAndResume);
+
+// function pauseCount (){
+//     clearInterval(startIntervel);
+// }
+
+// function continueCount (){
+//     setInterval(countDown,1000);
+// }
+
+
+// pauseBtn.addEventListener('click', () =>{
+//     if(startIntervel !=undefined){
+//         clearInterval(startIntervel);
+//         console.log(startIntervel);
+//     }
+//     if(minutes.textContent != sessionLength.textContent){
+//         startBtn.ondblclick = () => {
+//             startIntervel = setInterval(countDown,1000);
+//             pauseBtn.innerHTML = 'Resume';
+//             startBtn.title = 'Click For Resume!';
+//         }
+//     }
+// });
+
+
 
 // startBtn.onclick = () =>{
 //     startIntervel = setInterval(countDown,1000);
