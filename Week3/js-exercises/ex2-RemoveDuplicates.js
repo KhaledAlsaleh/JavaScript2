@@ -27,6 +27,13 @@ function checkSolution(array) {
 
 // WRITE YOUR FUNCTION HERE
 
+function removeDuplicates(oldArray){
+  const tampletArray = new Set(oldArray);
+  const newArray = [...tampletArray];
+  console.log(newArray);
+}
+
+
 const letters = ['a', 'b', 'c', 'd', 'a', 'e', 'f', 'c', 'b'];
 removeDuplicates(letters);
 
