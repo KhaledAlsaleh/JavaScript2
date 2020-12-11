@@ -27,6 +27,12 @@ function checkSolution(array) {
 
 // WRITE YOUR FUNCTION HERE
 
+// We have different ways to remove dublicat from an array 
+
+// Starting with Set :  Set will automatically remove duplicates for us.
+
+
+
 function removeDuplicates(oldArray){
   const tampletArray = new Set(oldArray);
   const newArray = [...tampletArray];
@@ -39,4 +45,50 @@ removeDuplicates(letters);
 
 if (checkSolution(letters)) {
   console.log("Hooray!");
+} 
+
+
+
+// Another option is to use filter().
+
+/*
+
+function removeDuplicates(oldArray){
+  const tampletArray = (oldArray) => oldArray.filter((a,i) => oldArray.indexOf(a) === i);
+  const newArray = tampletArray(oldArray);
+  console.log(newArray);
 }
+
+
+const letters = ['a', 'b', 'c', 'd', 'a', 'e', 'f', 'c', 'b'];
+removeDuplicates(letters);
+
+if (checkSolution(letters)) {
+  console.log("Hooray!");
+}
+
+*/
+
+// We can use forEach().
+
+/*
+
+function removeDuplicates(oldArray){
+  let unique = {};
+  oldArray.forEach(function(i) {
+    if(!unique[i]) {
+      unique[i] = true;
+    }
+  });
+  console.log(Object.keys(unique));
+}
+
+
+const letters = ['a', 'b', 'c', 'd', 'a', 'e', 'f', 'c', 'b'];
+removeDuplicates(letters);
+
+if (checkSolution(letters)) {
+  console.log("Hooray!");
+}
+
+*/

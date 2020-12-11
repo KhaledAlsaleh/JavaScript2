@@ -27,8 +27,8 @@ function createBase(baseNumber){
   };
 }
 
-const addSix = createBase(6);
+const addNine = createBase(6);
 
-console.log(addSix());
-console.log(addSix());
-console.log(addSix());
+console.log(addNine());
+console.log(addNine());
+console.log(addNine());
