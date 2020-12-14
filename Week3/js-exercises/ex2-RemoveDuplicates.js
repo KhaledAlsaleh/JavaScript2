@@ -34,15 +34,15 @@ function checkSolution(array) {
 
 
 function removeDuplicates(oldArray){
-  const tampletArray = new Set(oldArray);
-  const newArray = [...tampletArray];
+  const tampletArray = new Set(oldArray);  // convert the array into set which has unique items only
+  const newArray = [...tampletArray];  //using spread operator to extract set items and put them in array
   console.log(newArray);
 }
 
 
 const letters = ['a', 'b', 'c', 'd', 'a', 'e', 'f', 'c', 'b'];
 removeDuplicates(letters);
-
+//console.log(letters);
 if (checkSolution(letters)) {
   console.log("Hooray!");
 } 
