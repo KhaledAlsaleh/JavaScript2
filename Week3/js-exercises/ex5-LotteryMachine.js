@@ -25,12 +25,12 @@ Don't you just love the thrill of the lottery? What if I told you we can make ou
  if the array value is divisible by both 3 and 5.
 
 */
-function threeCallback(){
-  console.log('This array value is divisible by 3!');
+function threeCallback(num){
+  console.log(`This array value ${num} is divisible by 3!`);
 }
 
-function fiveCallback(){
-  console.log('This array value is divisible by 5!');
+function fiveCallback(num){
+  console.log(`This array value ${num} is divisible by 5!`);
 }
 
 
@@ -40,26 +40,22 @@ function threeFive(startIndex, stopIndex, threeCallback, fiveCallback) {
   const numbers = [];
 
   // make array
-  for (let i = startIndex; i <= stopIndex ; i++){
-    numbers.push(i);
-  }
-  console.log(numbers)
   // start at beginning of array and check if you should call threeCallback or fiveCallback or go on to next
-  for (let i = 0; i < numbers.length; i++) {
-    if (numbers[i] % 3 === 0 && numbers[i] % 5 === 0) {
-      console.log(`Array Value ${numbers[i]}`);
-      threeCallback();
-      fiveCallback();
-    } else if (numbers[i] % 3 === 0) {
-      console.log(`Array Value ${numbers[i]}`);
-      threeCallback();
-    } else if (numbers[i] % 5 === 0) {
-      console.log(`Array Value ${numbers[i]}`);
-      fiveCallback();
+  for (let i = startIndex; i <= stopIndex ; i++){
+
+    numbers.push(i);
+    if ( i % 3 === 0 && i % 5 === 0 ) {
+      threeCallback(i);
+      fiveCallback(i);
+    } else if ( i % 3 === 0 ) {
+      threeCallback(i);
+    } else if ( i % 5 === 0 ) {
+      fiveCallback(i);
     } else {
       continue;
     }
   }
+  console.log(numbers);
 }
 
 threeFive(10, 15, threeCallback, fiveCallback);
