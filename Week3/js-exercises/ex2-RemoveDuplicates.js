@@ -32,18 +32,20 @@ function checkSolution(array) {
 // Starting with Set :  Set will automatically remove duplicates for us.
 
 
-
+let newArray;
 function removeDuplicates(oldArray){
   const tampletArray = new Set(oldArray);  // convert the array into set which has unique items only
-  const newArray = [...tampletArray];  //using spread operator to extract set items and put them in array
+  newArray = [...tampletArray];  //using spread operator to extract set items and put them in array
   console.log(newArray);
+  return newArray;
 }
 
 
 const letters = ['a', 'b', 'c', 'd', 'a', 'e', 'f', 'c', 'b'];
 removeDuplicates(letters);
-//console.log(letters);
-if (checkSolution(letters)) {
+console.log(newArray);
+//console.log(checkSolution(newArray));
+if (checkSolution(newArray)) {
   console.log("Hooray!");
 } 
 
